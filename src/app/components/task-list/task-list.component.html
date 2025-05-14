@@ -1,0 +1,74 @@
+<div class="task-container">
+  <div class="task-header">
+    <div class="task-header-left">
+      <div class="icon-button">
+        <div class="icon-dots">
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+        </div>
+        <div class="icon-lines">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+      </div>
+      <h2>Tasks</h2>
+    </div>
+    <div class="task-header-right">
+      <button class="btn yellow-btn" (click)="onNewTask()">New Task</button>
+      <button class="btn yellow-btn">Refresh</button> 
+    </div>
+  </div>
+
+  
+  <div class="search-bar">
+    <input type="text" placeholder="Search tasks..." class="search-input" />
+  </div>
+
+  <div class="task-subheader">
+    <div class="subheader-left">
+      <p>All Tasks</p>
+      <span>{{ tasks.length }} Records</span>
+    </div>
+  </div>
+
+  <table class="task-table">
+    <thead>
+      <tr>
+        <th>Assigned To</th>
+        <th>Status</th>
+        <th>Due Date</th>
+        <th>Priority</th>
+        <th>Comments</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let task of pagedTasks">
+        <td>{{ task.assignedTo }}</td>
+        <td>{{ task.status }}</td>
+        <td>{{ task.dueDate | date:'dd/MM/yy' }}</td>
+        <td>{{ task.priority }}</td>
+        <td>{{ task.description }}</td>
+        <td>
+          <div class="dropdown">
+            <button class="dropdown-btn">⋮</button>
+            <div class="dropdown-content">
+              <button class="action-btn edit-btn" (click)="editTask(task)">Edit</button>
+              <button class="action-btn delete-btn" (click)="openDeleteDialog(task.id!, task.assignedTo)">Delete</button>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="pagination">
+    <button (click)="goToFirst()" [disabled]="currentPage === 1">First</button>
+    <button (click)="goToPrevious()" [disabled]="currentPage === 1">Prev</button>
+    <span>{{ currentPage }}</span>
+    <button (click)="goToNext()" [disabled]="currentPage === totalPages">Next</button>
+    <button (click)="goToLast()" [disabled]="currentPage === totalPages">Last</button>
+  </div>
+</div>

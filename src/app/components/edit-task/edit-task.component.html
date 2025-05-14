@@ -1,0 +1,50 @@
+<div class="task-form">
+  <form *ngIf="taskForm" [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+    <h2 style="text-align: center;">Edit Task</h2>
+
+    <div class="form-grid">
+      <div class="form-row">
+        <label class="required">Assigned To</label>
+        <input formControlName="assignedTo" type="text" required />      
+        <div *ngIf="taskForm.get('assignedTo')?.invalid && taskForm.get('assignedTo')?.touched" class="error">
+          Assigned To is required.
+        </div>
+      </div>
+
+     
+      <div class="form-row">
+        <label class="required">Status</label>
+        <input formControlName="status" type="text" required />
+        <div *ngIf="taskForm.get('status')?.invalid && taskForm.get('status')?.touched" class="error">
+          Status is required.
+        </div>
+      </div>
+
+      <div class="form-row">
+        <label class="required">Due Date</label>
+        <input formControlName="dueDate" type="date" required />
+        <div *ngIf="taskForm.get('dueDate')?.invalid && taskForm.get('dueDate')?.touched" class="error">
+          Due Date is required.
+        </div>
+      </div>
+
+      <div class="form-row">
+        <label class="required">Priority</label>
+        <input formControlName="priority" type="text" required />
+        <div *ngIf="taskForm.get('priority')?.invalid && taskForm.get('priority')?.touched" class="error">
+          Priority is required.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row full-width">
+      <label>Description</label>
+      <textarea formControlName="description"></textarea>
+    </div>
+
+    <div class="form-actions">
+      <button type="button" class="btn yellow-btn" (click)="cancel()">Cancel</button>
+      <button type="submit" class="btn grey-btn" [disabled]="taskForm.invalid">Save</button>
+    </div>
+  </form>
+</div>
