@@ -1,3 +1,17 @@
+# TaskBridge - Todo-List
+
+This is a full-stack task management application built with **Spring Boot** for the backend and **Angular** for the frontend. The application allows users to add, update, delete, and view tasks in a simple UI.
+
+The backend is developed using **Spring Boot**, exposing RESTful APIs and connecting to a **MySQL database** managed via **MySQL Workbench**. The frontend is created with **Angular**, which communicates with the backend using HTTP requests.
+
+To run the application:
+- Start the Spring Boot backend using STS.
+- Run the Angular frontend using `ng serve`.
+- Ensure MySQL is running and the database is correctly configured.
+
+This project demonstrates a typical CRUD operation flow with API integration and component-based frontend architecture.
+
+
 # TodoFrontend
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.10.
@@ -26,34 +40,3 @@ For a complete list of available schematics (such as `components`, `directives`,
 ng generate --help
 ```
 
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
